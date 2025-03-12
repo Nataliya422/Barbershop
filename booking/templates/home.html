@@ -1,0 +1,35 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <!-- Подключаем Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .btn-purple {
+            background-color: #6a0dad; /* Фиолетовый цвет */
+            color: white;
+        }
+        .btn-green {
+            background-color: #28a745; /* Зеленый цвет */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Добро пожаловать в наш Барбершоп!</h1>
+        <div class="text-center">
+            <a href="{% url 'about_us' %}" class="btn btn-purple btn-lg m-2">О нас</a>
+            <a href="{% url 'master_list' %}" class="btn btn-purple btn-lg m-2">Наши мастера</a>
+            <a href="{% url 'book_appointment' %}" class="btn btn-green btn-lg m-2">Записаться</a>
+        </div>
+    </div>
+    <!-- Подключаем Bootstrap JS и зависимости (jQuery, Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
