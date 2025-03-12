@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Услуги</title>
-</head>
-<body>
+<!-- templates/service_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Услуги{% endblock %}
+
+{% block content %}
     <h1>Список услуг</h1>
     <ul>
         {% for service in services %}
             <li>{{ service.name }} - {{ service.price }} руб.</li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}

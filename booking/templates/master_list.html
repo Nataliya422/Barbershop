@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Мастера</title>
-</head>
-<body>
+<!-- templates/master_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Наши мастера{% endblock %}
+
+{% block content %}
     <h1>Список мастеров</h1>
     <ul>
         {% for master in masters %}
             <li>{{ master.name }} - {{ master.experience }} лет опыта</li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}
