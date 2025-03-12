@@ -7,16 +7,9 @@
     <title>Главная</title>
     <!-- Подключаем Bootstrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .btn-purple {
-            background-color: #6a0dad; /* Фиолетовый цвет */
-            color: white;
-        }
-        .btn-green {
-            background-color: #28a745; /* Зеленый цвет */
-            color: white;
-        }
-    </style>
+    <!-- Подключаем статику -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <div class="container mt-5">

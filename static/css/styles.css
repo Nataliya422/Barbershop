@@ -1,0 +1,22 @@
+/* static/css/styles.css */
+body {
+    background: linear-gradient(135deg, #6a0dad, #28a745); /* Градиент от фиолетового к зеленому */
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.btn-purple {
+    background-color: #6a0dad; /* Фиолетовый цвет */
+    color: white;
+}
+
+.btn-green {
+    background-color: #28a745; /* Зеленый цвет */
+    color: white;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный белый фон для контейнера */
+    padding: 20px;
+    border-radius: 10px;
+}
