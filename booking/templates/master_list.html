@@ -11,13 +11,20 @@
                 <h2>{{ master.name }} - {{ master.experience }} лет опыта</h2>
                 <div>
                     <h3>Отзывы для {{ master.name }}</h3>
-                    {% for review in master.review_set.all %}
-                        <div class="review">
-                            <p><strong>{{ review.client_name }}:</strong> {{ review.comment }}</p>
-                            <p><strong>Рейтинг:</strong> {{ review.rating }}/5</p>
-                            <p><em>{{ review.date }}</em></p>
-                        </div>
-                    {% endfor %}
+                    <button id="toggle-link-{{ master.id }}" class="btn btn-purple btn-toggle" onclick="toggleReviewsList({{ master.id }}); return false;">Показать отзывы</button>
+                    <div id="reviews-list-{{ master.id }}">
+                        {% for review in master.review_set.all %}
+                            <div class="review">
+                                <p><strong>{{ review.client_name }}:</strong> Рейтинг: {{ review.rating }}/5</p>
+                                <p class="toggle-text">
+                                    <span class="show-less">{{ review.comment|truncatewords:10 }}</span>
+                                    <span class="show-more" style="display:none;">{{ review.comment }}</span>
+                                    <a href="#" class="toggle-link" onclick="toggleReview(event); return false;">Читать полностью</a>
+                                </p>
+                                <p><em>{{ review.date }}</em></p>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
                 <div>
                     <h3>Оставить отзыв для {{ master.name }}</h3>
@@ -41,4 +48,9 @@
             </li>
         {% endfor %}
     </ul>
+
+    <!-- Подключаем CSS и JavaScript из статики -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/scripts.js' %}"></script>
 {% endblock %}

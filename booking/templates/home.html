@@ -8,9 +8,9 @@
     <div class="text-center">
         <a href="{% url 'about_us' %}" class="btn btn-purple btn-lg m-2">О нас</a>
         <a href="{% url 'master_list' %}" class="btn btn-purple btn-lg m-2">Наши мастера</a>
-        <a href="{% url 'book_appointment' %}" class="btn btn-green btn-lg m-2">Записаться</a>
+        <button id="toggle-booking-button" class="btn btn-green btn-lg m-2" onclick="toggleBookingForm()">Записаться</button>
     </div>
-    <div class="mt-5">
+    <div id="booking-form" style="display:none;" class="mt-5">
         <h2 class="text-center mb-4">Выберите мастера, услугу, дату и время</h2>
         <form method="post" action="{% url 'book_appointment' %}">
             {% csrf_token %}
@@ -42,3 +42,8 @@
         </form>
     </div>
 {% endblock %}
+
+<!-- Подключаем CSS и JavaScript из статики -->
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<script src="{% static 'js/scripts.js' %}"></script>
