@@ -10,6 +10,7 @@
         <a href="{% url 'master_list' %}" class="btn btn-purple btn-lg m-2">Наши мастера</a>
         <button id="toggle-booking-button" class="btn btn-green btn-lg m-2" onclick="toggleBookingForm()">Записаться</button>
     </div>
+    
     <div id="booking-form" style="display:none;" class="mt-5">
         <h2 class="text-center mb-4">Выберите мастера, услугу, дату и время</h2>
         <form method="post" action="{% url 'book_appointment' %}">
@@ -47,3 +48,9 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 <script src="{% static 'js/scripts.js' %}"></script>
+
+<!-- Подвал с кнопкой "Назад на главную" -->
+<footer class="text-center mt-5 mb-3" style="background-color: #6a0dad; color: white; padding: 15px;">
+    <p>&copy; {{ current_year }} Наш Барбершоп. Все права защищены.</p>
+    <button onclick="window.location.href='{% url 'home' %}'" class="btn btn-light">Назад на главную</button>
+</footer>
