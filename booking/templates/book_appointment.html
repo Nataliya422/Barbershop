@@ -4,6 +4,14 @@
 {% block title %}Записаться{% endblock %}
 
 {% block content %}
-    <h1>Записаться</h1>
-    <p>Форма для записи на услуги.</p>
+    <h1 class="text-center mb-4">Записаться</h1>
+    {% if selected_master and selected_service %}
+        <p>Вы выбрали мастера: {{ selected_master.name }}</p>
+        <p>Вы выбрали услугу: {{ selected_service.name }}</p>
+        <p>Стоимость услуги: {{ selected_service.price }} руб.</p>
+        <p>Дата записи: {{ date }}</p>
+        <p>Время записи: {{ time }}</p>
+    {% else %}
+        <p>Пожалуйста, выберите мастера, услугу, дату и время на главной странице.</p>
+    {% endif %}
 {% endblock %}
