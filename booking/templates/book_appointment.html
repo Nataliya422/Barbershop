@@ -1,17 +1,37 @@
 <!-- templates/book_appointment.html -->
 {% extends 'base.html' %}
 
-{% block title %}Записаться{% endblock %}
+{% block title %}Запись на прием{% endblock %}
 
 {% block content %}
-    <h1 class="text-center mb-4">Записаться</h1>
-    {% if selected_master and selected_service %}
-        <p>Вы выбрали мастера: {{ selected_master.name }}</p>
-        <p>Вы выбрали услугу: {{ selected_service.name }}</p>
-        <p>Стоимость услуги: {{ selected_service.price }} руб.</p>
-        <p>Дата записи: {{ date }}</p>
-        <p>Время записи: {{ time }}</p>
-    {% else %}
-        <p>Пожалуйста, выберите мастера, услугу, дату и время на главной странице.</p>
-    {% endif %}
+    <h1 class="text-center mb-4">Запись на прием</h1>
+    <form method="post" action="{% url 'book_appointment' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="master">Выберите мастера:</label>
+            <select class="form-control" id="master" name="master">
+                {% for master in masters %}
+                    <option value="{{ master.id }}">{{ master.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="service">Выберите услугу:</label>
+            <select class="form-control" id="service" name="service">
+                {% for service in services %}
+                    <option value="{{ service.id }}">{{ service.name }} - {{ service.price }} руб.</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="date">Выберите дату:</label>
+            <input type="date" class="form-control" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+            <label for="time">Выберите время:</label>
+            <input type="time" class="form-control" id="time" name="time" required>
+        </div>
+        <button type="submit" class="btn btn-purple mt-3">Записаться</button>
+    </form>
 {% endblock %}
+

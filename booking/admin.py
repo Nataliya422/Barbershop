@@ -1,8 +1,7 @@
 # booking/admin.py
 from django.contrib import admin
-from .models import Master, Service, Review
+from .models import Master, Service, Review, Appointment
 from django.utils.translation import gettext_lazy as _
-
 
 class MasterAdmin(admin.ModelAdmin):
     list_display = ('name', 'experience')
@@ -29,6 +28,12 @@ class ReviewAdmin(admin.ModelAdmin):
 
     delete_low_rating.short_description = _("Удалить отзывы с рейтингом ниже 3")
 
+class AppointmentAdmin(admin.ModelAdmin):
+    list_display = ('client_name', 'master', 'service', 'date', 'time')
+    search_fields = ('client_name', 'master__name', 'service__name')
+    list_filter = ('date', 'time', 'master', 'service')
+
 admin.site.register(Master, MasterAdmin)
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(Review, ReviewAdmin)
+admin.site.register(Appointment, AppointmentAdmin)

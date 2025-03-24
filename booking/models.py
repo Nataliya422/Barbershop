@@ -36,3 +36,17 @@ class Review(models.Model):
 
     def __str__(self):
         return f"Отзыв от {self.client_name} для {self.master.name}"
+
+class Appointment(models.Model):
+    master = models.ForeignKey(Master, on_delete=models.CASCADE, verbose_name="Мастер")
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, verbose_name="Услуга")
+    client_name = models.CharField(max_length=100, verbose_name="Имя клиента")
+    date = models.DateField(verbose_name="Дата")
+    time = models.TimeField(verbose_name="Время")
+
+    class Meta:
+        verbose_name = "Запись"
+        verbose_name_plural = "Записи"
+
+    def __str__(self):
+        return f"Запись для {self.client_name} на {self.date} в {self.time}"
