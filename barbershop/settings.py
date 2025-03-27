@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'booking',
+    'jazzmin',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,27 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Jazzmin settings
+
+JAZZMIN_SETTINGS = {
+    'site_title': 'Barbershop',
+    'site_header': 'Barbershop',
+    'site_footer': 'Barbershop',
+    'display_version': True,
+    'navigation_expanded': True,
+    'menu_icon_class': 'fa fa-bars',
+    'menu_title': 'Menu',
+    'compact_mode': False,
+    'related_modal_size': '400px',
+    'show_sidebar_search': True,
+    'hide_sidebar_branding': False,
+    'hide_sidebar_menu': False,
+    'hide_sidebar_user_menu': False,
+    'hide_sidebar_admin_menu': False,
+    'body_classes': 'dark-mode',
+    'extra_css': [],
+    'extra_js': [],
+    'ajax': True,
+    'changeform_buttons_position': 'top',
+}
