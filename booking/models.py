@@ -1,4 +1,3 @@
-# booking/models.py
 from django.db import models
 
 class Master(models.Model):
@@ -15,6 +14,7 @@ class Master(models.Model):
 class Service(models.Model):
     name = models.CharField(max_length=100, verbose_name="Название услуги")
     price = models.DecimalField(max_digits=8, decimal_places=2, verbose_name="Цена")
+    description = models.TextField(verbose_name="Описание", blank=True, null=True)
 
     class Meta:
         verbose_name = "Услуга"

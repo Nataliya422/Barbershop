@@ -4,7 +4,7 @@
 {% block title %}Запись на прием{% endblock %}
 
 {% block content %}
-    <h1 class="text-center mb-4">Запись на прием</h1>
+    <h1 class="text-center mb-4">Запись на услугу</h1>
     <form method="post" action="{% url 'book_appointment' %}">
         {% csrf_token %}
         <div class="form-group">

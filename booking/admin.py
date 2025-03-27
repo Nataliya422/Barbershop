@@ -1,4 +1,3 @@
-# booking/admin.py
 from django.contrib import admin
 from .models import Master, Service, Review, Appointment
 from django.utils.translation import gettext_lazy as _
@@ -10,8 +9,8 @@ class MasterAdmin(admin.ModelAdmin):
     list_editable = ('experience',)
 
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price')
-    search_fields = ('name',)
+    list_display = ('name', 'price', 'description')
+    search_fields = ('name', 'description')
     list_filter = ('price',)
     list_editable = ('price',)
 

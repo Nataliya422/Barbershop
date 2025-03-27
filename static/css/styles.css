@@ -2,6 +2,15 @@ body {
     background: linear-gradient(135deg, #6a0dad, #28a745); /* Градиент от фиолетового к зеленому */
     color: white;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1; /* Заставляет контент занимать все доступное пространство */
 }
 
 .btn-purple {
@@ -47,4 +56,81 @@ a.toggle-link:hover {
 
 .hide-show-review {
     display: none; /* Кнопка скрытия отзыва по умолчанию */
+}
+
+/* Стили для подвала */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #6a0dad; /* Фиолетовый цвет фона */
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+/* Стили для центрирования иконки */
+.contener-img {
+    position: absolute;
+    width: 1100px;
+    height: 685px;
+}
+
+.contener-img img {
+    left: 50%;
+    top: 15%;
+    
+}
+/* Стили для контейнера услуг */
+.services-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+    width: 100%;
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    margin: 0 auto; /* Центрирование контейнера */
+}
+
+/* Стили для списка услуг */
+.service-list {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Расстояние между элементами */
+    width: 100%;
+}
+
+.service-list li {
+    flex: 1 1 calc(33.333% - 20px); /* Ширина элемента с учетом отступов */
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.service-list li:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Изменение фона при наведении */
+    transform: translateY(-5px); /* Легкое поднятие при наведении */
+}
+
+.service-list .service-name {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.service-list .service-price {
+    color: #6a0dad; /* Фиолетовый цвет для цены */
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.service-list .service-description {
+    color: #ddd;
+    font-size: 1rem;
 }

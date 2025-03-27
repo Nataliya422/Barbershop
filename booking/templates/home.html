@@ -1,4 +1,3 @@
-<!-- templates/home.html -->
 {% extends 'base.html' %}
 
 {% load static %}  <!-- Загрузка тега static -->
@@ -6,55 +5,29 @@
 {% block title %}Главная{% endblock %}
 
 {% block content %}
-
-
+<div class="content">
+    
     <h1 class="text-center mb-4">Добро пожаловать в наш Барбершоп!</h1>
     <div class="text-center">
         <a href="{% url 'about_us' %}" class="btn btn-purple btn-lg m-2">О нас</a>
-        <a href="{% url 'master_list' %}" class="btn btn-purple btn-lg m-2">Наши мастера</a>
+        <a href="{% url 'service_list' %}" class="btn btn-purple btn-lg m-2">Прайс</a>
+        <a href="{% url 'master_list' %}" class="btn btn-purple btn-lg m-2">Наша команда</a>
         <a href="{% url 'book_appointment' %}" class="btn btn-green btn-lg m-2" role="button">Записаться</a>
     </div>
-    
-    <div id="booking-form" style="display:none;" class="mt-5">
-        <h2 class="text-center mb-4">Выберите мастера, услугу, дату и время</h2>
-        <form method="post" action="{% url 'book_appointment' %}">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="master">Выберите мастера:</label>
-                <select class="form-control" id="master" name="master">
-                    {% for master in masters %}
-                        <option value="{{ master.id }}">{{ master.name }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="service">Выберите услугу:</label>
-                <select class="form-control" id="service" name="service">
-                    {% for service in services %}
-                        <option value="{{ service.id }}">{{ service.name }} - {{ service.price }} руб.</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="date">Выберите дату:</label>
-                <input type="date" class="form-control" id="date" name="date" required>
-            </div>
-            <div class="form-group">
-                <label for="time">Выберите время:</label>
-                <input type="time" class="form-control" id="time" name="time" required>
-            </div>
-            <button type="submit" class="btn btn-purple mt-3">Записаться</button>
-        </form>
+    <div class="contener-img">
+        <img src="{% static 'images/servise.jpg' %}" alt="Иконка барбершопа" class="img-fluid mb-4">
     </div>
+
 {% endblock %}
 
+
+
 <!-- Подключаем CSS и JavaScript из статики -->
-{% load static %}
 <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 <script src="{% static 'js/scripts.js' %}"></script>
 
 <!-- Подвал с кнопкой "Назад на главную" -->
-<footer class="text-center mt-5 mb-3" style="background-color: #6a0dad; color: white; padding: 15px;">
+<footer class="text-center mt-5 mb-3">
     <p>&copy; {{ current_year }} Наш Барбершоп. Все права защищены.</p>
     <button onclick="window.location.href='{% url 'home' %}'" class="btn btn-light">Назад на главную</button>
 </footer>

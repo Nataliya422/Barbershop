@@ -1,13 +1,20 @@
-<!-- templates/service_list.html -->
 {% extends 'base.html' %}
+
+{% load static %}
 
 {% block title %}Услуги{% endblock %}
 
 {% block content %}
-    <h1>Список услуг</h1>
-    <ul>
-        {% for service in services %}
-            <li>{{ service.name }} - {{ service.price }} руб.</li>
-        {% endfor %}
-    </ul>
+    <div class="services-container">
+        <h1 class="text-center mb-4">Наши услуги</h1>
+        <ul class="service-list">
+            {% for service in services %}
+                <li>
+                    <div class="service-name">{{ service.name }}</div>
+                    <div class="service-price">{{ service.price }} руб.</div>
+                    <div class="service-description">{{ service.description }}</div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
