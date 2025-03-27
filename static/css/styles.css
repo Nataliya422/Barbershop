@@ -59,14 +59,19 @@ a.toggle-link:hover {
 }
 
 /* Стили для подвала */
-footer {
+.footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #6a0dad; /* Фиолетовый цвет фона */
+    background-color: #343a40; /* Темный цвет фона, как у навигационной панели */
     color: white;
     padding: 15px;
-    text-align: center;
+    z-index: 1000; /* Убедитесь, что подвал находится поверх контента */
+}
+
+/* Убедитесь, что контент не перекрывается подвалом */
+body {
+    padding-bottom: 60px; /* Высота подвала */
 }
 /* Стили для центрирования иконки */
 .contener-img {

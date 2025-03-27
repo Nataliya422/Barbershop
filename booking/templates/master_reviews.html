@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Отзывы для {{ master.name }}{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mb-4">Отзывы для {{ master.name }}</h1>
+    <div class="row">
+        {% for review in reviews %}
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ review.client_name }}</h5>
+                        <p class="card-text">Рейтинг: {{ review.rating }}/5</p>
+                        <p class="card-text">{{ review.comment }}</p>
+                        <p class="card-text"><em>{{ review.date }}</em></p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

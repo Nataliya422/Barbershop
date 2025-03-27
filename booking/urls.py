@@ -10,5 +10,6 @@ urlpatterns = [
     path('book/', views.book_appointment, name='book_appointment'),
     path('masters/<int:master_id>/review/', views.add_review, name='add_review'),
     path('reviews/', views.reviews, name='reviews'),
+     path('master_reviews/<int:master_id>/', views.master_reviews, name='master_reviews'),
 
 ]

@@ -26,8 +26,3 @@
 <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 <script src="{% static 'js/scripts.js' %}"></script>
 
-<!-- Подвал с кнопкой "Назад на главную" -->
-<footer class="text-center mt-5 mb-3">
-    <p>&copy; {{ current_year }} Наш Барбершоп. Все права защищены.</p>
-    <button onclick="window.location.href='{% url 'home' %}'" class="btn btn-light">Назад на главную</button>
-</footer>

@@ -66,3 +66,8 @@ def book_appointment(request):
 def reviews(request):
     reviews_list = Review.objects.all()
     return render(request, 'reviews.html', {'reviews': reviews_list})
+
+def master_reviews(request, master_id):
+    master = get_object_or_404(Master, id=master_id)
+    reviews = Review.objects.filter(master=master)
+    return render(request, 'master_reviews.html', {'master': master, 'reviews': reviews})
