@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Обработчик для переключения видимости отзывов
-    document.querySelectorAll('.toggle-review-link').forEach(link => {
+    document.querySelectorAll('.toggle-link').forEach(link => {
         link.addEventListener('click', toggleReview);
     });
 
     // Обработчик для переключения списка отзывов
-    document.querySelectorAll('.toggle-reviews-list').forEach(link => {
-        link.addEventListener('click', function(event) {
+    document.querySelectorAll('.btn-toggle').forEach(button => {
+        button.addEventListener('click', function(event) {
             const masterId = event.target.dataset.masterId;
             toggleReviewsList(masterId);
         });
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function toggleReview(event) {
+    event.preventDefault(); // Предотвращаем стандартное поведение ссылки
     const toggleLink = event.target;
     const reviewText = toggleLink.parentNode;
     const showLess = reviewText.querySelector('.show-less');
@@ -26,7 +27,7 @@ function toggleReview(event) {
         if (showLess.style.display === 'none') {
             showLess.style.display = 'inline';
             showMore.style.display = 'none';
-            toggleLink.textContent = 'Подробнее';
+            toggleLink.textContent = 'Читать полностью';
         } else {
             showLess.style.display = 'none';
             showMore.style.display = 'inline';

@@ -62,3 +62,7 @@ def book_appointment(request):
         })
 
     return render(request, 'book_appointment.html', {'masters': masters, 'services': services})
+
+def reviews(request):
+    reviews_list = Review.objects.all()
+    return render(request, 'reviews.html', {'reviews': reviews_list})
