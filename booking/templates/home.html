@@ -6,23 +6,9 @@
 
 {% block content %}
 <div class="content">
-    
     <h1 class="text-center mb-4">Добро пожаловать в наш Барбершоп!</h1>
-    <div class="text-center">
-        <a href="{% url 'about_us' %}" class="btn btn-purple btn-lg m-2">О нас</a>
-        <a href="{% url 'service_list' %}" class="btn btn-purple btn-lg m-2">Прайс</a>
-        <a href="{% url 'master_list' %}" class="btn btn-purple btn-lg m-2">Наша команда</a>
-        <a href="{% url 'book_appointment' %}" class="btn btn-green btn-lg m-2" role="button">Записаться</a>
-    </div>
     <div class="contener-img">
         <img src="{% static 'images/about1.jpg' %}" alt="Иконка барбершопа" class="img-fluid mb-4">
     </div>
-
+</div>
 {% endblock %}
-
-
-
-<!-- Подключаем CSS и JavaScript из статики -->
-<link rel="stylesheet" href="{% static 'css/styles.css' %}">
-<script src="{% static 'js/scripts.js' %}"></script>
-
