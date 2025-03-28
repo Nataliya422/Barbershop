@@ -1,7 +1,7 @@
 body {
     background: linear-gradient(135deg, #ae77d5, #82d996);
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -155,4 +155,37 @@ body {
 .card .card-body {
     position: relative;
     z-index: 1;
+}
+
+/* Улучшаем читаемость текста в карточках */
+.card-text {
+    color: #333 !important;
+    font-weight: 400;
+}
+
+.card-title {
+    color: #212529 !important;
+}
+
+/* Стили для модальных окон */
+.modal-content {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    border-radius: 10px 10px 0 0;
+}
+
+/* Стили для отзывов */
+.review-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
