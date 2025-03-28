@@ -149,3 +149,6 @@ JAZZMIN_SETTINGS = {
     'ajax': True,
     'changeform_buttons_position': 'top',
 }
+# для автомодерации отзывов через AI
+MISTRAL_API_KEY = os.getenv('MISTRAL_API_KEY')
+MISTRAL_MODEL = os.getenv('MISTRAL_MODEL')
