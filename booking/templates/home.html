@@ -1,28 +1,128 @@
 {% extends 'base.html' %}
 
-{% load static %}  <!-- Загрузка тега static -->
+{% load static %}
 
-{% block title %}Главная{% endblock %}
+{% block title %}Главная - BARBERSHOP{% endblock %}
 
 {% block content %}
-<div class="content">
-    
-    <h1 class="text-center mb-4">Добро пожаловать в наш Барбершоп!</h1>
-    <div class="text-center">
-        <a href="{% url 'about_us' %}" class="btn btn-purple btn-lg m-2">О нас</a>
-        <a href="{% url 'service_list' %}" class="btn btn-purple btn-lg m-2">Прайс</a>
-        <a href="{% url 'master_list' %}" class="btn btn-purple btn-lg m-2">Наша команда</a>
-        <a href="{% url 'book_appointment' %}" class="btn btn-green btn-lg m-2" role="button">Записаться</a>
+<!-- Приветственный блок с фото -->
+<div class="row align-items-center mb-5 pt-4">
+    <div class="col-lg-6 mb-4 mb-lg-0">
+        <h1 class="display-4 fw-bold">Барбершоп премиум-класса</h1>
+        <p class="lead my-4">Добро пожаловать в мир мужского стиля и безупречного сервиса! Мы не просто стрижем — мы создаём индивидуальный образ, который подчеркнет вашу харизму и характер.</p>
+        <p class="mb-4">Наш барбершоп — это место, где современные тенденции встречаются с классическими канонами мужской стрижки. Доверьтесь нашим опытным мастерам и получите безупречный результат.</p>
     </div>
-    <div class="contener-img">
-        <img src="{% static 'images/about1.jpg' %}" alt="Иконка барбершопа" class="img-fluid mb-4">
+    <div class="col-lg-6">
+        <div class="position-relative">
+            <img src="{% static 'images/about1.jpg' %}" alt="Барбершоп" class="img-fluid rounded shadow-lg">
+            <div class="position-absolute top-0 start-0 bg-dark text-white p-3 rounded-end mt-4">
+                <h3 class="h5 mb-0">С 2015 года с вами</h3>
+            </div>
+        </div>
     </div>
+</div>
 
+<!-- Наши преимущества -->
+<section class="py-5">
+    <div class="container px-0">
+        <h2 class="text-center mb-5 fw-bold">Почему выбирают нас</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-4">
+                            <i class="bi bi-award text-dark" style="font-size: 3rem;"></i>
+                        </div>
+                        <h3 class="h4">Профессионализм</h3>
+                        <p class="text-muted">Наши барберы — настоящие мастера своего дела, прошедшие специальное обучение и имеющие многолетний опыт работы.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-4">
+                            <i class="bi bi-scissors text-dark" style="font-size: 3rem;"></i>
+                        </div>
+                        <h3 class="h4">Лучшие материалы</h3>
+                        <p class="text-muted">Мы используем только профессиональную косметику премиум-класса и работаем инструментами высочайшего качества.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-4">
+                            <i class="bi bi-cup-hot text-dark" style="font-size: 3rem;"></i>
+                        </div>
+                        <h3 class="h4">Особая атмосфера</h3>
+                        <p class="text-muted">В нашем барбершопе вы сможете не просто подстричься, но и расслабиться с чашкой хорошего кофе или бокалом виски.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Популярные услуги -->
+<section class="py-5 bg-light rounded">
+    <div class="container px-0">
+        <h2 class="text-center mb-5 fw-bold">Наши услуги</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-scissors me-3 text-dark" style="font-size: 2rem;"></i>
+                            <h3 class="h4 mb-0">Мужская стрижка</h3>
+                        </div>
+                        <p class="text-muted mb-3">Профессиональная мужская стрижка с учетом особенностей вашей внешности и формы лица.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold fs-5">от 1500 ₽</span>
+                            <span class="badge bg-dark rounded-pill">60 мин</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-pencil me-3 text-dark" style="font-size: 2rem;"></i>
+                            <h3 class="h4 mb-0">Моделирование бороды</h3>
+                        </div>
+                        <p class="text-muted mb-3">Придание формы и коррекция бороды с использованием профессиональной косметики.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold fs-5">от 1000 ₽</span>
+                            <span class="badge bg-dark rounded-pill">30 мин</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-shop me-3 text-dark" style="font-size: 2rem;"></i>
+                            <h3 class="h4 mb-0">Королевское бритье</h3>
+                        </div>
+                        <p class="text-muted mb-3">Классическое бритье опасной бритвой с распариванием кожи и массажем.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold fs-5">от 1800 ₽</span>
+                            <span class="badge bg-dark rounded-pill">45 мин</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Кнопка записи -->
+<div class="text-center my-5">
+    <p class="lead mb-4">Готовы ощутить профессиональный подход к своему стилю?</p>
+    <a href="{% url 'book_appointment' %}" class="btn btn-dark btn-lg px-5 py-3">
+        <i class="bi bi-calendar-check me-2"></i> Записаться на стрижку
+    </a>
+</div>
 {% endblock %}
-
-
-
-<!-- Подключаем CSS и JavaScript из статики -->
-<link rel="stylesheet" href="{% static 'css/styles.css' %}">
-<script src="{% static 'js/scripts.js' %}"></script>
-

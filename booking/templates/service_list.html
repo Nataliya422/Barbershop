@@ -1,20 +1,33 @@
 {% extends 'base.html' %}
+<!-- filepath: /c:/Users/user/Downloads/Barbershop/booking/templates/service_list.html -->
 
-{% load static %}
-
-{% block title %}Услуги{% endblock %}
+{% block title %}Услуги - BARBERSHOP{% endblock %}
 
 {% block content %}
-    <div class="services-container">
-        <h1 class="text-center mb-4">Наши услуги</h1>
-        <ul class="service-list">
-            {% for service in services %}
-                <li>
-                    <div class="service-name">{{ service.name }}</div>
-                    <div class="service-price">{{ service.price }} руб.</div>
+<div class="mt-5 pt-4">
+    <h1 class="text-center mb-4">
+        <i class="bi bi-card-list text-dark me-2"></i>Наши услуги
+    </h1>
+    <p class="lead text-center">
+        Погрузитесь в мир высококлассного ухода за собой! Наши услуги – это гарантия стильного образа и уверенности в каждом движении.
+    </p>
+    <ul class="service-list mt-4">
+        {% for service in services %}
+            <li>
+                <div class="d-flex align-items-center mb-2">
+                    <i class="bi bi-gem text-dark me-2" style="font-size:1.5rem;"></i>
+                    <span class="service-name">{{ service.name }}</span>
+                </div>
+                <div class="service-price mb-1">{{ service.price }} руб.</div>
+                {% if service.description %}
                     <div class="service-description">{{ service.description }}</div>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
+                {% else %}
+                    <div class="service-description text-muted">
+                        Услуга высочайшего качества, созданная для настоящих ценителей стиля.
+                    </div>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

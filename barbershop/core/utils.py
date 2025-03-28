@@ -1,40 +1,49 @@
 import os
 from mistralai import Mistral
-# from django.conf import settings  # Правильный способ импорта настроек Django
-#from dotenv import load_dotenv
-from promt import MISTRAL_REVIEW_PROMPT
+from django.conf import settings
+from .promt import MISTRAL_REVIEW_PROMPT
 
-import os
- 
-# load_dotenv()
- 
-MISTRAL_API_KEY = os.getenv('MISTRAL_API_KEY')
-MISTRAL_MODEL = os.getenv('MISTRAL_MODEL')
- 
-REVIEW = "Всё классно! Но кажется от Бородоча немного несло спиртом. Хотя ему можно простить, он же Бро. В целом рекомендую, если вас это не смущает"
- 
-PROMT = MISTRAL_REVIEW_PROMPT.format(review_text=REVIEW)
- 
-# Инициализация клиента
 def check_review(review_text):
-     # Инициализация клиента
-     client = Mistral(api_key=MISTRAL_API_KEY)
-     prompt = MISTRAL_REVIEW_PROMPT.format(review_text=review_text)
-     chat_response = client.chat.complete(
-         model=MISTRAL_MODEL,
-         messages=[
-             {
-                 "role": "user",
-                 "content": prompt
-             }
-         ]
-     )
-     response_text = chat_response.choices[0].message.content.lower()
-     # Вывод в консоль ответа
-     print(response_text)
-     if "true" in response_text.lower():
-         return True
-     elif "false" in response_text.lower():
-         return False
-     else:
-         return False
+    """
+    Проверяет содержимое отзыва на корректность с помощью Mistral AI.
+    
+    Args:
+        review_text (str): Текст отзыва для проверки
+        
+    Returns:
+        bool: True если отзыв корректный, False если отзыв нарушает правила
+    """
+    # Получаем ключи из настроек Django
+    api_key = settings.MISTRAL_API_KEY
+    model = settings.MISTRAL_MODEL
+    
+    # Проверяем наличие ключа API
+    if not api_key:
+        print("ОШИБКА: Отсутствует ключ API Mistral. Модерация отзывов недоступна.")
+        return False
+    
+    try:
+        # Инициализация клиента
+        client = Mistral(api_key=api_key)
+        
+        # Форматируем промпт с текстом отзыва
+        prompt = MISTRAL_REVIEW_PROMPT.format(review_text=review_text)
+        
+        # Отправляем запрос к API
+        chat_response = client.chat.complete(
+            model=model,
+            messages=[{"role": "user", "content": prompt}]
+        )
+        
+        # Получаем ответ и приводим к нижнему регистру
+        response_text = chat_response.choices[0].message.content.lower()
+        
+        # Выводим результат для отладки
+        print(f"Результат проверки отзыва: {response_text}")
+        
+        # Простая проверка наличия слова "true" в ответе
+        return "true" in response_text
+        
+    except Exception as e:
+        print(f"Ошибка при модерации отзыва: {str(e)}")
+        return False  # В случае ошибки считаем отзыв некорректным
