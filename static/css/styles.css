@@ -21,11 +21,11 @@ body {
 
 .btn-green {
     background-color: #28a745; /* Зеленый цвет */
-    color: white;
+    color: rgb(28, 25, 25);
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.499); /* Полупрозрачный белый фон для контейнера */
+    background-color: rgba(255, 255, 255, 0.178); /* Полупрозрачный белый фон для контейнера */
     padding: 20px;
     border-radius: 10px;
 }
@@ -35,7 +35,7 @@ body {
     display: inline-block; /* Делает ссылку блочным элементом */
     padding: 10px 15px; /* Добавляем отступы, чтобы выглядеть как кнопка */
     background-color: #6a0dad; /* Основной цвет */
-    color: white; /* Цвет текста */
+    color: rgb(26, 21, 21); /* Цвет текста */
     border-radius: 5px; /* Закругленные углы */
     text-decoration: none; /* Убираем подчеркивание */
 }
