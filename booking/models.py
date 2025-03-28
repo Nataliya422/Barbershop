@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Master(models.Model):
     name = models.CharField(max_length=100, verbose_name="Имя мастера")
@@ -26,7 +27,7 @@ class Service(models.Model):
 class Review(models.Model):
     master = models.ForeignKey(Master, on_delete=models.CASCADE, verbose_name="Мастер")
     client_name = models.CharField(max_length=100, verbose_name="Имя клиента")
-    comment = models.TextField(verbose_name="Комментарий")
+    comment = models.TextField(max_length=500, verbose_name="Комментарий")
     rating = models.IntegerField(verbose_name="Рейтинг")
     date = models.DateTimeField(auto_now_add=True, verbose_name="Дата отзыва")
     is_approved = models.BooleanField(default=False, verbose_name="Одобрен")
