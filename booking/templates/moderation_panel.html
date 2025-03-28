@@ -1,0 +1,25 @@
+<!-- moderation_panel.html -->
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Панель модератора{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mb-4">Панель модератора</h1>
+    <div class="row">
+        {% for signal in signals %}
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Сигнал на отзыв {{ signal.review.id }}</h5>
+                        <p class="card-text">Тип сигнала: {{ signal.signal_type }}</p>
+                        <p class="card-text">От: {{ signal.user.username }}</p>
+                        <p class="card-text"><em>{{ signal.date }}</em></p>
+                        <a href="{% url 'review_detail' signal.review.id %}" class="btn btn-primary">Просмотреть отзыв</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

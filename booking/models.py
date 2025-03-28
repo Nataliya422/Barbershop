@@ -29,6 +29,7 @@ class Review(models.Model):
     comment = models.TextField(verbose_name="Комментарий")
     rating = models.IntegerField(verbose_name="Рейтинг")
     date = models.DateTimeField(auto_now_add=True, verbose_name="Дата отзыва")
+    is_approved = models.BooleanField(default=False, verbose_name="Одобрен")
 
     class Meta:
         verbose_name = "Отзыв"
@@ -36,6 +37,19 @@ class Review(models.Model):
 
     def __str__(self):
         return f"Отзыв от {self.client_name} для {self.master.name}"
+    
+class Signal(models.Model):
+    review = models.ForeignKey(Review, on_delete=models.CASCADE, verbose_name="Отзыв")
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, verbose_name="Пользователь")
+    signal_type = models.CharField(max_length=50, verbose_name="Тип сигнала")
+    date = models.DateTimeField(auto_now_add=True, verbose_name="Дата сигнала")
+
+    class Meta:
+        verbose_name = "Сигнал"
+        verbose_name_plural = "Сигналы"
+
+    def __str__(self):
+        return f"Сигнал на отзыв {self.review.id} от {self.user.username}"
 
 class Appointment(models.Model):
     master = models.ForeignKey(Master, on_delete=models.CASCADE, verbose_name="Мастер")

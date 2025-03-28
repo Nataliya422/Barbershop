@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Отзыв{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mb-4">Отзыв</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ review.client_name }}</h5>
+            <p class="card-text">Рейтинг: {{ review.rating }}/5</p>
+            <p class="card-text">{{ review.comment }}</p>
+            <p class="card-text"><em>{{ review.date }}</em></p>
+
+            <!-- Форма для отправки сигналов -->
+            <form method="post" action="{% url 'review_detail' review.id %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-danger">Сигнал</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
