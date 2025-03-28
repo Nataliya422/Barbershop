@@ -1,14 +1,64 @@
-<!-- templates/about_us.html -->
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}О нас{% endblock %}
+{% block title %}О нас - BARBERSHOP{% endblock %}
 
 {% block content %}
-    <h1 class="text-center mb-4">О нас</h1>
-    <div class="text-center">
-        <p>Добро пожаловать в наш барбершоп! Мы рады предложить вам широкий спектр услуг по уходу за волосами и бородой.</p>
-        <p>Наши мастера — это профессионалы с многолетним опытом, которые всегда готовы помочь вам выглядеть стильно и ухоженно.</p>
-        <p>Мы используем только качественные продукты и современные техники, чтобы вы всегда были довольны результатом.</p>
-        <p>Записывайтесь на услуги и наслаждайтесь атмосферой нашего заведения!</p>
+<div class="container mt-5 pt-4">
+    <!-- Основной раздел -->
+    <div class="row mb-5">
+        <div class="col-lg-6">
+            <h1 class="display-4 fw-bold mb-4">
+                <i class="bi bi-scissors text-dark"></i> 
+                Мы создаём стиль
+            </h1>
+            <p class="lead">С 2015 года мы помогаем мужчинам выглядеть безупречно. Наш барбершоп — это место, где традиции встречаются с современностью.</p>
+            <hr class="my-4">
+            <p class="mb-4">Мы верим, что каждый мужчина заслуживает выглядеть на все 100%. Именно поэтому мы предлагаем не просто стрижку, а создаем индивидуальный стиль для каждого клиента.</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="{% static 'images/about1.jpg' %}" alt="Наш барбершоп" class="img-fluid rounded-3 shadow-lg">
+        </div>
     </div>
+
+    <!-- Наши ценности -->
+    <div class="row mb-5">
+        <h2 class="text-center mb-4">Наши ценности</h2>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-award text-dark display-4 mb-3"></i>
+                    <h3 class="h4">Профессионализм</h3>
+                    <p class="text-muted">Наши мастера регулярно повышают квалификацию и следят за последними трендами.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-heart text-dark display-4 mb-3"></i>
+                    <h3 class="h4">Забота</h3>
+                    <p class="text-muted">Индивидуальный подход к каждому клиенту - наш главный приоритет.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-gem text-dark display-4 mb-3"></i>
+                    <h3 class="h4">Качество</h3>
+                    <p class="text-muted">Используем только премиальные материалы и инструменты.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Призыв к действию -->
+    <div class="text-center mb-5">
+        <h2 class="mb-4">Готовы преобразиться?</h2>
+        <a href="{% url 'book_appointment' %}" class="btn btn-dark btn-lg">
+            <i class="bi bi-calendar-check me-2"></i>Записаться сейчас
+        </a>
+    </div>
+</div>
 {% endblock %}

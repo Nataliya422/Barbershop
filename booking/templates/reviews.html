@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
-
+<!-- filepath: /c:/Users/user/Downloads/Barbershop/booking/templates/reviews.html -->
 {% load static %}
 
-{% block title %}Отзывы{% endblock %}
+{% block title %}Отзывы - BARBERSHOP{% endblock %}
 
 {% block content %}
-    <h1 class="text-center mb-4">Отзывы</h1>
-    <div class="row">
+<div class="mt-5 pt-4">
+    <h1 class="text-center mb-4">
+        <i class="bi bi-chat-quote text-dark me-2"></i>Отзывы
+    </h1>
+    <p class="lead text-center">
+        Наши клиенты говорят сами за себя! Прочитайте, как мы превращаем обычных людей в настоящих джентльменов.
+    </p>
+    <div class="row mt-4">
         {% for review in reviews %}
             <div class="col-md-6 mb-4">
                 <div class="card">
@@ -20,4 +26,5 @@
             </div>
         {% endfor %}
     </div>
+</div>
 {% endblock %}

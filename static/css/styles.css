@@ -126,3 +126,33 @@ body {
     color: #ddd;
     font-size: 1rem;
 }
+
+/* Стили для карточек мастеров */
+.hover-effect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.card .card-img-top {
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.card .card-body {
+    position: relative;
+    z-index: 1;
+}
